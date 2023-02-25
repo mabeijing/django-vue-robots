@@ -33,3 +33,11 @@ class TbMenus(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=100)
     icon = models.ImageField()
+
+
+class TbRules(models.Model):
+    id = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=100)
+    father_id = models.IntegerField()
+    rule_name = models.CharField(max_length=100)
+    is_menu = models.BooleanField(default=False)
