@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'autobots'
 ]
 
 MIDDLEWARE = [
@@ -77,9 +78,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'dev': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dev_mysql',
+        'HOST': 'localhost',
+        'PORT': 3306,
+        'USER': 'root',
+        'PASSWORD': 'Root@123'
     }
 }
 
+# 需要手动额外添加的映射关系，app 对应 数据库
+DATABASES_APPS_MAPPING = {
+    'autobots': 'dev'
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -105,6 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+# 设置时区，默认'UTC',这个不是服务器时区，每个服务器可能跑多个项目
+# TIME_ZONE = 'UTC'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
