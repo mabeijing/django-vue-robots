@@ -22,3 +22,10 @@ class Roles(models.Model):
     name = models.CharField(max_length=100)
     create_time = models.DateTimeField(default=datetime.datetime.now)
     status = models.IntegerField()
+
+
+class TbUsers(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100)
+
+
