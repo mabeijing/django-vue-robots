@@ -41,3 +41,6 @@ class TbRules(models.Model):
     father_id = models.IntegerField()
     rule_name = models.CharField(max_length=100)
     is_menu = models.BooleanField(default=False)
+
+
+
